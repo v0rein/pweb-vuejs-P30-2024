@@ -25,10 +25,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <nav class="bg-gray-800 p-4">
-    <div class="container mx-auto flex justify-between items-center">
+  <nav class="p-4 bg-gray-800">
+    <div class="container flex items-center justify-between mx-auto">
       <div class="flex items-center space-x-4">
-        <h3 class="text-white font-bold">Book App PWEB A | P8 </h3>
+        <h3 class="font-bold text-white">Book App PWEB A | P30</h3>
       </div>
       <div class="md:hidden">
         <button @click="toggleMenu" class="text-white focus:outline-none">
@@ -48,7 +48,7 @@ export default defineComponent({
           </svg>
         </button>
       </div>
-      <div class="hidden md:flex items-center space-x-4">
+      <div class="items-center hidden space-x-4 md:flex">
         <RouterLink to="/" class="text-white">Home</RouterLink>
         <RouterLink to="/add-book" class="text-white">Add New Book</RouterLink>
       </div>
@@ -60,11 +60,11 @@ export default defineComponent({
       'translate-x-full': !isMenuOpen,
       'translate-x-0': isMenuOpen,
     }"
-    class="fixed top-0 right-0 h-full w-64 bg-gray-800 text-white transform transition-transform duration-300 ease-in-out md:hidden"
+    class="fixed top-0 right-0 w-64 h-full text-white transition-transform duration-300 ease-in-out transform bg-gray-800 md:hidden"
   >
     <button
       @click="closeMenu"
-      class="absolute top-4 right-4 text-white focus:outline-none"
+      class="absolute text-white top-4 right-4 focus:outline-none"
     >
       <svg
         class="w-6 h-6"
@@ -81,7 +81,7 @@ export default defineComponent({
         ></path>
       </svg>
     </button>
-    <div class="mt-16 flex flex-col items-center space-y-4">
+    <div class="flex flex-col items-center mt-16 space-y-4">
       <RouterLink to="/" class="text-white" @click="closeMenu">Home</RouterLink>
       <RouterLink to="/add-book" class="text-white" @click="closeMenu"
         >Add New Book</RouterLink
