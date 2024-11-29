@@ -33,28 +33,28 @@ export default {
 </script>
 
 <template>
-  <div class="border border-black rounded-xl px-6 pt-6 pb-8">
+  <div class="px-6 pt-6 pb-8 border border-black rounded-xl">
     <img
       src="https://placehold.co/300x200"
       alt="Wajib Pake Typescript hehe"
-      class="rounded-xl mb-4 w-full"
+      class="w-full mb-4 rounded-xl"
     />
     <h3 class="text-xl font-bold text-left">
       {{ book.title }} | {{ book.author }}
     </h3>
     <hr class="my-2 border border-black" />
-    <h5 class="text-md font-medium text-left">
+    <h5 class="font-medium text-left text-md">
       Published: {{ book.publishedDate }} by {{ book.publisher }}
     </h5>
-    <h5 class="text-md font-medium text-left">
+    <h5 class="font-medium text-left text-md">
       Category: {{ book.tags.join(", ") }}
     </h5>
-    <h5 class="text-md font-medium text-left">
+    <h5 class="font-medium text-left text-md">
       Quantity: {{ book.qty }} of {{ book.initialQty }} books
     </h5>
     <RouterLink
       :to="getReadMoreLink(book._id)"
-      class="px-4 text-white py-2 bg-blue-400 font-semibold rounded-xl inline-block mt-2"
+      class="inline-block px-4 py-2 mt-2 font-semibold text-white bg-blue-400 rounded-xl"
       >Read More</RouterLink
     >
   </div>

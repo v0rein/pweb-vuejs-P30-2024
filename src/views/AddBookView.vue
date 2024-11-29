@@ -42,7 +42,7 @@ export default defineComponent({
         qty: this.qty,
       };
 
-      const response = await fetch("http://localhost:8080/book", {
+      const response = await fetch("http://localhost:3000/book", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,14 +69,14 @@ export default defineComponent({
 </script>
 
 <template>
-  <main class="mt-10 mx-8 pb-24">
-    <h1 class="font-bold text-3xl text-center mb-2">Add New Book</h1>
+  <main class="pb-24 mx-8 mt-10">
+    <h1 class="mb-2 text-3xl font-bold text-center">Add New Book</h1>
     <form
       @submit.prevent="addBook"
-      class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md"
+      class="max-w-2xl p-8 mx-auto bg-white rounded-lg shadow-md"
     >
       <div class="mb-4">
-        <label for="title" class="block text-gray-700 font-bold mb-2"
+        <label for="title" class="block mb-2 font-bold text-gray-700"
           >Title</label
         >
         <input
@@ -84,12 +84,12 @@ export default defineComponent({
           id="title"
           type="text"
           placeholder="Tintin di Tibet"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <div class="mb-4">
-        <label for="author" class="block text-gray-700 font-bold mb-2"
+        <label for="author" class="block mb-2 font-bold text-gray-700"
           >Author</label
         >
         <input
@@ -97,24 +97,24 @@ export default defineComponent({
           id="author"
           type="text"
           placeholder="Hergé"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <div class="mb-4">
-        <label for="publishedDate" class="block text-gray-700 font-bold mb-2"
+        <label for="publishedDate" class="block mb-2 font-bold text-gray-700"
           >Published Date</label
         >
         <input
           v-model="publishedDate"
           id="publishedDate"
           type="date"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <div class="mb-4">
-        <label for="publisher" class="block text-gray-700 font-bold mb-2"
+        <label for="publisher" class="block mb-2 font-bold text-gray-700"
           >Publisher</label
         >
         <input
@@ -122,24 +122,24 @@ export default defineComponent({
           id="publisher"
           type="text"
           placeholder="Gramedia"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <div class="mb-4">
-        <label for="description" class="block text-gray-700 font-bold mb-2"
+        <label for="description" class="block mb-2 font-bold text-gray-700"
           >Description</label
         >
         <textarea
           v-model="description"
           id="description"
           placeholder="Kisah petualangan Tintin di Tibet"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         ></textarea>
       </div>
       <div class="mb-4">
-        <label for="coverImage" class="block text-gray-700 font-bold mb-2"
+        <label for="coverImage" class="block mb-2 font-bold text-gray-700"
           >Cover Image URL</label
         >
         <input
@@ -147,12 +147,12 @@ export default defineComponent({
           id="coverImage"
           type="url"
           placeholder="https://placehold.co/300x200"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <div class="mb-4">
-        <label for="ratingAverage" class="block text-gray-700 font-bold mb-2"
+        <label for="ratingAverage" class="block mb-2 font-bold text-gray-700"
           >Rating Average</label
         >
         <input
@@ -160,24 +160,24 @@ export default defineComponent({
           id="ratingAverage"
           type="number"
           step="0.1"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <div class="mb-4">
-        <label for="ratingCount" class="block text-gray-700 font-bold mb-2"
+        <label for="ratingCount" class="block mb-2 font-bold text-gray-700"
           >Rating Count</label
         >
         <input
           v-model="ratingCount"
           id="ratingCount"
           type="number"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <div class="mb-4">
-        <label for="tags" class="block text-gray-700 font-bold mb-2"
+        <label for="tags" class="block mb-2 font-bold text-gray-700"
           >Tags (comma separated)</label
         >
         <input
@@ -185,36 +185,36 @@ export default defineComponent({
           id="tags"
           type="text"
           placeholder="Adventure, Fiction, Mystery"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <div class="mb-4">
-        <label for="initialQty" class="block text-gray-700 font-bold mb-2"
+        <label for="initialQty" class="block mb-2 font-bold text-gray-700"
           >Initial Quantity</label
         >
         <input
           v-model="initialQty"
           id="initialQty"
           type="number"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <div class="mb-4">
-        <label for="qty" class="block text-gray-700 font-bold mb-2"
+        <label for="qty" class="block mb-2 font-bold text-gray-700"
           >Quantity</label
         >
         <input
           v-model="qty"
           id="qty"
           type="number"
-          class="w-full px-3 py-2 border rounded-lg"
+          class="w-full px-3 py-2 text-gray-700 border rounded-lg"
           required
         />
       </div>
       <h5
-        class="font-bold text-xl text-red-400 mb-8 text-center"
+        class="mb-8 text-xl font-bold text-center text-red-400"
         v-show="error"
       >
         {{ errorMsg }}
@@ -222,7 +222,7 @@ export default defineComponent({
       <div class="flex justify-center">
         <button
           type="submit"
-          class="px-4 text-white py-2 bg-blue-400 font-semibold rounded-xl"
+          class="px-4 py-2 font-semibold text-white bg-blue-400 rounded-xl"
         >
           Add Book
         </button>

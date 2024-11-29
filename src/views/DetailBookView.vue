@@ -50,15 +50,15 @@ export default defineComponent({
   async created() {
     try {
       const response = await fetch(
-        `http://localhost:8080/book/${this.$route.params.id}`
+        `http://localhost:3000/book/${this.$route.params.id}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch book data");
       }
       const data = await response.json();
-      console.log(data)
+      console.log(data);
       this.bookDetail = { ...data };
-      console.log(this.bookDetail)
+      console.log(this.bookDetail);
     } catch (error) {
       console.error(error);
       this.fetchError = true;
@@ -67,7 +67,7 @@ export default defineComponent({
   methods: {
     async deleteBook() {
       const response = await fetch(
-        `http://localhost:8080/book/${this.$route.params.id}`,
+        `http://localhost:3000/book/${this.$route.params.id}`,
         {
           method: "DELETE",
         }
@@ -88,64 +88,64 @@ export default defineComponent({
 </script>
 
 <template>
-  <main class="mt-14 mx-8 pb-14">
+  <main class="mx-8 mt-14 pb-14">
     <RouterLink
       to="/"
-      class="px-4 text-white py-2 lg:ml-24 bg-blue-400 font-semibold rounded-xl inline-block"
-      >⬅️ {{!!bookDetail.title}}</RouterLink
+      class="inline-block px-4 py-2 font-semibold text-white bg-blue-400 lg:ml-24 rounded-xl"
+      >⬅️ {{ !!bookDetail.title }}</RouterLink
     >
     <div v-if="fetchError" class="mt-8">
-      <h1 class="font-bold text-3xl text-center">Failed to load book data</h1>
+      <h1 class="text-3xl font-bold text-center">Failed to load book data</h1>
     </div>
 
     <div v-else-if="bookDetail.title" class="mt-8">
-      <div class="flex lg:ml-24 gap-x-10 flex-col lg:flex-row">
+      <div class="flex flex-col lg:ml-24 gap-x-10 lg:flex-row">
         <div class="w-full md:w-4/6 lg:w-[500px] lg:flex-shrink-0">
           <img
             :src="bookDetail.coverImage"
-            class="rounded-xl w-full"
+            class="w-full rounded-xl"
             alt="Book Cover"
           />
         </div>
         <div class="mt-10 lg:mt-0 lg:pr-24">
-          <h1 class="font-bold text-xl md:text-2xl lg:text-3xl text-left">
+          <h1 class="text-xl font-bold text-left md:text-2xl lg:text-3xl">
             Buku {{ bookDetail.title }} by {{ bookDetail.author }}
           </h1>
-          <h5 class="text-sm text-gray-500 font-bold mt-2">
+          <h5 class="mt-2 text-sm font-bold text-gray-500">
             {{ bookDetail.rating.average }} {{ starRating }} ({{
               bookDetail.rating.count
             }})
           </h5>
-          <hr class="border border-black my-2" />
-          <h3 class="text-md md:text-lg text-left">
+          <hr class="my-2 border border-black" />
+          <h3 class="text-left text-md md:text-lg">
             <span class="font-bold">About:</span> {{ bookDetail.description }}
           </h3>
-          <h3 class="text-md md:text-lg text-left">
+          <h3 class="text-left text-md md:text-lg">
             <span class="font-bold">Published:</span>
             {{ bookDetail.publishedDate }} by
             {{ bookDetail.publisher }}
           </h3>
-          <h3 class="text-md md:text-lg text-left">
+          <h3 class="text-left text-md md:text-lg">
             <span class="font-bold">Category:</span>
             {{ bookDetail.tags.join(", ") }}
           </h3>
-          <h3 class="text-md md:text-lg text-left">
+          <h3 class="text-left text-md md:text-lg">
             <span class="font-bold">Stock:</span>
             {{ bookDetail.qty }} of {{ bookDetail.initialQty }} books
           </h3>
         </div>
       </div>
-      <div class="lg:ml-24 flex justify-center items-center">
+      <div class="flex items-center justify-center lg:ml-24">
         <button
           @click="deleteBook"
-          class="px-4 text-white py-2 w-1/2 bg-red-400 font-semibold rounded-xl mt-8 inline-block"
+          class="inline-block w-1/2 px-4 py-2 mt-8 font-semibold text-white bg-red-400 rounded-xl"
         >
           Remove Book
         </button>
       </div>
     </div>
     <div v-else class="mt-8">
-      <h1 class="font-bold text-3xl text-center">Loading...</h1>
+      <h1 class="text-3xl font-bold text-center">Loading...</h1>
     </div>
   </main>
 </template>

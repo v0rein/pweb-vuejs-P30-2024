@@ -20,7 +20,7 @@ export default {
   }),
   async mounted() {
     try {
-      const response = await fetch("http://localhost:8080/book");
+      const response = await fetch("http://localhost:3000/book");
       if (!response.ok) {
         throw new Error("Failed to fetch books data");
       }
@@ -39,8 +39,8 @@ export default {
 </script>
 
 <template>
-  <main class="mt-10 mx-8 pb-24">
-    <h1 class="font-bold text-3xl text-center">Book Gallery App P8</h1>
+  <main class="pb-24 mx-8 mt-10">
+    <h1 class="text-3xl font-bold text-center">Book Gallery App P8</h1>
     <div class="flex flex-wrap justify-center gap-4 mt-10">
       <BookCard
         v-if="booksData.length"
@@ -49,10 +49,10 @@ export default {
         :book="book"
         class="w-full sm:w-full md:w-2/6 lg:w-1/4"
       />
-      <h1 class="font-bold text-3xl text-center w-full" v-else-if="fetchError">
+      <h1 class="w-full text-3xl font-bold text-center" v-else-if="fetchError">
         Failed to load books data
       </h1>
-      <h1 class="font-bold text-3xl text-center w-full" v-else>Loading...</h1>
+      <h1 class="w-full text-3xl font-bold text-center" v-else>Loading...</h1>
     </div>
   </main>
 </template>
